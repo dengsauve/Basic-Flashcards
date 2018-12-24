@@ -1,6 +1,6 @@
 <?php
 
-require 'env.php';
+require 'include/env.php';
 
 // query for all flashcards
 $sql = 'select * from flashcards';
@@ -79,4 +79,4 @@ $footer = <<<EOF
 EOF;
 echo $footer;
 
-require 'end.php';
+require 'include/end.php';
