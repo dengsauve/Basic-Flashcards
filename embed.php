@@ -19,6 +19,23 @@ $header = <<<EOF
 EOF;
 echo $header;
 
+// Status Bar
+$status_bar = <<<EOF
+    <div class='status-bar'>
+        <p>
+            <span id='position'>
+                1
+            </span>
+            /
+            <span id='total'>
+                1
+            </span>
+        </p>
+    </div>
+EOF;
+echo $status_bar;
+
+// Flashcards
 if($result->num_rows > 0)
 {
     $notFirst = false;
@@ -33,10 +50,10 @@ if($result->num_rows > 0)
             <div class='flip-card" . $hidden . "'>
                 <div class='flip-card-inner'>
                     <div class='flip-card-front'>
-                        <p>" . $row['term'] . "</p>
+                        <p class='card-text'>" . $row['term'] . "</p>
                     </div>
                     <div class='flip-card-back'>
-                        <p>" . $row['definition'] . "</p>
+                        <p class='card-text'>" . $row['definition'] . "</p>
                     </div>
                 </div>
             </div>
@@ -46,6 +63,7 @@ if($result->num_rows > 0)
   }
 }
 
+// Next/Previous Button Bar
 echo "
 <br/>
 <div class='bar'>

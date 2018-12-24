@@ -24,8 +24,8 @@
   /* Do an horizontal flip when you move the mouse over the flip box container */
   .flip-card:hover .flip-card-inner, 
   .flip-card:focus .flip-card-inner {
-    transform: rotateY(180deg);
-    -webkit-transform: rotateY(180deg);
+    transform: rotateX(180deg);
+    -webkit-transform: rotateX(180deg);
   }
   
   /* Position the front and back side */
@@ -47,11 +47,11 @@
   .flip-card-back {
     background-color: dodgerblue;
     color: white;
-    transform: rotateY(180deg);
-    -webkit-transform: rotateY(180deg);
+    transform: rotateX(180deg);
+    -webkit-transform: rotateX(180deg);
   }
 
-  p{
+  p.card-text{
       padding-top: 100px;
       font-size: 24px;
       font-family: Arial, Helvetica, sans-serif;
