@@ -76,6 +76,13 @@ $form = '
 ';
 echo $form;
 
-$db->close();
+// HTML Footers
+$footer = <<<EOF
+</body>
+</html>
+EOF;
+echo $footer;
 
+// close db connections
+require 'include/end.php';
 ?>
