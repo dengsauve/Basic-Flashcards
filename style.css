@@ -1,18 +1,16 @@
 /* Homepage Styles */
-h1, h2, h3, h4, h5, h6, p {
-font-family: Arial, Helvetica, sans-serif;
+h1, h2, h3, h4, h5, h6, p, form {
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 table {
-font-family: Arial, Helvetica, sans-serif;
-text-align: left;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: left;
 }
 
 td {
-padding-top: 20px;
+    padding-top: 20px;
 }
-
-
 
 /* The flip card container - set the width and height to whatever you want. We have added the border property to demonstrate that the flip itself goes out of the box on hover (remove perspective if you don't want the 3D effect */
 .flip-card {
@@ -104,4 +102,28 @@ a.button {
 
 button.button {
     height: 50px;
+}
+
+/* Form Styling */
+form {
+    margin-top: 20px;
+}
+form label, form input {
+    display: block;
+}
+
+form label {
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+form input {
+    margin-bottom: 15px;
+    padding: 5px;
+    border-radius: 5px;
+    /* Override Defaults */
+    border-width: 1px;
+    border-style: solid;
+    border-color: grey;
+    border-image: initial;
 }

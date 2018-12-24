@@ -44,11 +44,7 @@ $header = <<<EOF
 EOF;
 echo $header;
 
-//////// Admin Section ////////
-// view embeded tool
-echo "<a href='/embed.php' class='button'>Embedded Flashcard Tool</a>";
-echo "<a href='/add.php' class='button'>Add New Cards</a>";
-////// End Admin Section //////
+include 'include/menu.php';
 
 // Flashcards Section
 echo "<h1>Flashcards</h1>";

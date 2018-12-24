@@ -19,6 +19,8 @@ $header = <<<EOF
 EOF;
 echo $header;
 
+include 'include/menu.php';
+
 // Status Bar
 $status_bar = <<<EOF
     <div class='status-bar'>
