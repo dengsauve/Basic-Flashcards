@@ -9,6 +9,39 @@ if(empty($id)) $id = mysqli_real_escape_string($db, $_POST['id']);
 
 if(!empty($id))
 {
+    // if posted submission
+    if($_POST['submit'] == 'Update')
+    {
+        // Sanitize Input
+        $term = mysqli_real_escape_string($db, $_POST['term']);
+        $term = trim($term);
+        $definition = mysqli_real_escape_string($db, $_POST['definition']);
+        $definition = trim($definition);
+
+        // If input is valid, create the flashcard record
+        if(!empty($term) && !empty($definition))
+        {
+            // Insert Query
+            $sql = "UPDATE flashcards 
+                        SET `term` = '$term',
+                            `definition` = '$definition'
+                        WHERE id = $id";
+
+            // Try Query
+            if (!mysqli_query($db, $sql)) {
+                die('Error: ' . mysqli_error($db));
+            }
+
+            // Set Success Message, remove sticky form values
+            $message = '<p class="message">One Record Created</p>';
+            $term = '';
+            $definition = '';
+        }
+        else {
+            $message = '<p class="message">Fields may not be empty</p>';
+        }
+    }
+
     // sql query
     $sql = "SELECT * FROM flashcards WHERE id = '$id'";
 
@@ -44,8 +77,8 @@ if($result->num_rows > 0)
         <label for="term">Term</label>
         <input type="text" name="term" value="' . $row['term'] . '" />
         <label for="definition">Definition</label>
-        <input type="text" name="definition" value="' . $row['definition'] . '" />
-        <input class="button" type="submit" name="submit" value="Create"></button>
+        <textarea name="definition">' . $row['definition'] . '</textarea>
+        <input class="button" type="submit" name="submit" value="Update"></button>
     </form>
     ';
     echo $form;
