@@ -12,6 +12,26 @@ td {
     padding-top: 20px;
 }
 
+/* Flashcard Container Styling */
+div.app-container{
+    max-width: 700px;
+    padding: 20px;
+    border: 2px solid darkgrey;
+    background-color: lightgrey;
+    overflow: hidden;
+}
+
+div.status-cards{
+    overflow: hidden;
+}
+
+/* Status Bar Styling */
+div.status-bar{
+    float: left;
+}
+
+/* Flashcard Styling */
+
 /* The flip card container - set the width and height to whatever you want. We have added the border property to demonstrate that the flip itself goes out of the box on hover (remove perspective if you don't want the 3D effect */
 .flip-card {
 background-color: transparent;
@@ -21,6 +41,7 @@ height: 300px;
 border: 1px solid #f1f1f1;
 perspective: 1000px; /* Remove this if you don't want the 3D effect */
 -webkit-perspective: 1000px;
+float: right;
 }
 
 /* This container is needed to position the front and back side */
@@ -53,7 +74,7 @@ backface-visibility: hidden;
 
 /* Style the front side (fallback if image is missing) */
 .flip-card-front {
-background-color: #bbb;
+background-color: rgb(255, 255, 255);
 color: black;
 }
 
@@ -76,7 +97,8 @@ p.card-text{
 }
 
 .bar{
-    max-width: 500px;
+    display: block;
+    overflow: hidden;
 }
 
 /* Button Styling */
@@ -96,11 +118,11 @@ p.card-text{
     text-decoration: none;
 }
 
-a.button {
+a.button{
     padding: 10px;
 }
 
-button.button {
+button.button{
     height: 50px;
 }
 

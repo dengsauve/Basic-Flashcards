@@ -19,12 +19,22 @@ $header = <<<EOF
 EOF;
 echo $header;
 
+// Admin Menu
 include 'include/menu.php';
+
+// Application Container Open
+$app_container = <<<EOF
+    <div class="app-container">
+        <div class="status-cards">
+EOF;
+echo $app_container;
 
 // Status Bar
 $status_bar = <<<EOF
     <div class='status-bar'>
+        
         <p>
+            Progress: 
             <span id='position'>
                 1
             </span>
@@ -67,11 +77,18 @@ if($result->num_rows > 0)
 
 // Next/Previous Button Bar
 echo "
+</div>
 <br/>
 <div class='bar'>
     <button class='button previous-button' id='previous'>Previous</button>
     <button class='button next-button' id='next'>Next</button>
 </div>";
+
+// Application Container Close
+$app_container = <<<EOF
+    </div>
+EOF;
+echo $app_container;
 
 // HTML Footers
 $footer = <<<EOF
