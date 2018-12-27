@@ -14,7 +14,7 @@ td {
 
 /* Flashcard Container Styling */
 div.app-container{
-    max-width: 700px;
+    max-width: 1100px;
     padding: 20px;
     border: 2px solid darkgrey;
     background-color: lightgrey;
@@ -28,6 +28,26 @@ div.status-cards{
 /* Status Bar Styling */
 div.status-bar{
     float: left;
+    width: 20%;
+    height: 100%;
+}
+
+.w3-green,.w3-hover-green:hover{
+    color:#fff!important;
+    background-color:#4CAF50!important;
+    height:14px;
+    width:20%;
+    border-radius: 5px;
+}
+
+.w3-light-grey,
+.w3-hover-light-grey:hover,
+.w3-light-gray,
+.w3-hover-light-gray:hover{
+    color:#000!important;
+    background-color:#f1f1f1!important;
+    width: 100%;
+    border-radius: 5px;
 }
 
 /* Flashcard Styling */
@@ -35,8 +55,8 @@ div.status-bar{
 /* The flip card container - set the width and height to whatever you want. We have added the border property to demonstrate that the flip itself goes out of the box on hover (remove perspective if you don't want the 3D effect */
 .flip-card {
 background-color: transparent;
-width: 100%;
-max-width: 500px;
+width: 70%;
+min-width: 400px;
 height: 300px;
 border: 1px solid #f1f1f1;
 perspective: 1000px; /* Remove this if you don't want the 3D effect */

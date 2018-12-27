@@ -20,11 +20,12 @@ EOF;
 echo $header;
 
 // Admin Menu
-include 'include/menu.php';
+if($admin) include 'include/menu.php';
 
 // Application Container Open
 $app_container = <<<EOF
     <div class="app-container">
+        <h2>Study Group: Default</h2>
         <div class="status-cards">
 EOF;
 echo $app_container;
@@ -32,7 +33,9 @@ echo $app_container;
 // Status Bar
 $status_bar = <<<EOF
     <div class='status-bar'>
-        
+        <div class="w3-light-grey">
+            <div id="progress-bar" class="w3-green"></div>
+        </div>
         <p>
             Progress: 
             <span id='position'>
