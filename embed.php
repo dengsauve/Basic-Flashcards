@@ -3,8 +3,36 @@
 require 'include/env.php';
 
 // query for all flashcards
-$sql = 'select * from flashcards';
+$sql = 'select flashcards.*
+from flashcard_groups
+join flashcards on flashcards.id = flashcard_groups.flashcard_id
+where flashcard_groups.group_id = 1';
 $result = $db->query($sql);
+$group_name = "Sample Group";
+
+// Get group from $_GET
+$group = $_GET['group'];
+if(!empty($group))
+{
+    $sql = "select name
+                from groups
+                where id = $group";
+    $name_result = $db->query($sql);
+    $group_name = $name_result->fetch_assoc()['name'];
+
+    if(empty($group_name))
+    {
+        $group_name = "Sample Group";
+    }
+    else 
+    {
+        $sql = "select flashcards.*
+        from flashcard_groups
+        join flashcards on flashcards.id = flashcard_groups.flashcard_id
+        where flashcard_groups.group_id = $group";
+        $result = $db->query($sql);
+    }
+}
 
 // HTML Page Header
 $header = <<<EOF
@@ -25,7 +53,7 @@ if($admin) include 'include/menu.php';
 // Application Container Open
 $app_container = <<<EOF
     <div class="app-container">
-        <h2>Study Group: Default</h2>
+        <h2>Study Group: $group_name</h2>
         <div class="status-cards">
 EOF;
 echo $app_container;
