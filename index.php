@@ -9,22 +9,37 @@ $result = $db->query($sql);
 
 // Create Flashcard Table
 $table = "<table>";
-$table = $table . "<tr><th>Term</th><th>Definition</th><th>Admin</th></tr>";
+$table = $table . "<tr><th>Term</th><th>Definition</th><th>Groups</th><th>Admin</th></tr>";
 
 // Parse flashcard results into table rows
 if($result->num_rows > 0)
 {
   while($row = $result->fetch_assoc())
   {
-    $table = $table 
-      . "<tr><td>" 
-      . $row['term'] 
-      . "</td><td>" 
-      . $row['definition'] 
-      . "</td><td><a href='/edit.php?id="
-      . $row['id']
-      . "' class='button'>Edit</a>"
-      . "</td></tr>";
+      // Grab all groups that the card belongs to
+      $sql = "select groups.name 
+                from flashcard_groups
+                left join groups on groups.id = flashcard_groups.group_id
+                where flashcard_id = " . $row['id'];
+      $names = $db->query($sql);
+      $name_array = array();
+
+      while($name_row = $names->fetch_assoc())
+      {
+        array_push($name_array, $name_row['name']);
+      }
+
+      $table = $table 
+        . "<tr><td>" 
+        . $row['term'] 
+        . "</td><td>" 
+        . substr($row['definition'], 0, 50)
+        . "</td><td>"
+        . implode(",", $name_array)
+        . "</td><td><a href='/edit.php?id="
+        . $row['id']
+        . "' class='button'>Edit</a>"
+        . "</td></tr>";
   }
 }
 
