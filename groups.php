@@ -38,7 +38,10 @@ if($result->num_rows > 0)
     
         $table = $table . "<td><a href='/editgroup.php?id="
             . $row['id']
-            . "' class='button'>Edit</a>"
+            . "' class='button'>Edit</a> "
+            . "<a href='/embed.php?group="
+            . $row['id']
+            . "' class='button'>View Set</a>"
             . "</td></tr>";
   }
 }

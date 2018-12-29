@@ -79,6 +79,9 @@ if($result->num_rows > 0)
     echo $form;
 }
 
+// Add Cards to Group
+echo "<a href='/associate.php?id=$id' class='button'>Associate Cards</a>";
+
 // HTML Footers
 $footer = <<<EOF
   </body>
