@@ -74,6 +74,7 @@ $status_bar = <<<EOF
                 1
             </span>
         </p>
+        <button id="toggleTerm" class="button">Toggle Term/Definition</button>
     </div>
 EOF;
 echo $status_bar;
