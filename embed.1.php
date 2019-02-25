@@ -2,6 +2,9 @@
 
 require 'include/env.php';
 
+////////////////////////////////
+// START OF FLASHCARD QUERIES //
+////////////////////////////////
 // query for all flashcards
 $sql = 'select flashcards.*
 from flashcard_groups
@@ -34,6 +37,10 @@ if(!empty($group))
     }
 }
 
+//////////////////////////////
+// END OF FLASHCARD QUERIES //
+//////////////////////////////
+
 // HTML Page Header
 $header = <<<EOF
 <!DOCTYPE html>
@@ -56,7 +63,7 @@ $app_container = <<<EOF
         <div class="title-bar">
             <h2>Study Group: $group_name</h2>
         </div>
-        <div class="status-cards">
+        <div class="app-body">
 EOF;
 echo $app_container;
 
@@ -65,33 +72,34 @@ if($result->num_rows > 0)
 {
     $notFirst = false;
     $hidden = '';
-  while($row = $result->fetch_assoc())
-  {
-    if($notFirst)
+    while($row = $result->fetch_assoc())
     {
-        $hidden = ' hidden';
-    }
-    $card = "
-            <div class='flip-card" . $hidden . "'>
-                <div class='flip-card-inner'>
-                    <div class='flip-card-front'>
-                        <p class='card-text'>" . $row['term'] . "</p>
+        // Hide the following cards that are generated (only showing the first)
+        if($notFirst)
+        {
+            $hidden = ' hidden';
+        }
+        
+        $card = "
+                <div class='card-container $hidden'>
+                    <div class='card-front'>
+                        <p class='hint-box hidden'>" . substr($row['definition'], 0, 20) . "...</p>
+                        <p class='term'>" . $row['term'] . "</p>
                     </div>
-                    <div class='flip-card-back'>
-                        <p style='float: left;'>" . $row['term'] . "</p>
-                        <p class='card-text'>" . $row['definition'] . "</p>
+                    <div class='card-back hidden'>
+                        <p class='term-box'>" . $row['term'] . "</p>
+                        <p class='definition'>" . $row['definition'] . "</p>
                     </div>
                 </div>
-            </div>
-            ";
-    echo $card;
-    $notFirst = true;
-  }
+        ";
+        echo $card;
+        $notFirst = true;
+    }
 }
 
 // Next/Previous Button Bar
 echo "
-</div>
+</div><!-- end app-body -->
 <br/>
 <div class='bar'>
     <button class='button previous-button' id='previous'>Previous</button>
@@ -114,7 +122,8 @@ $status_bar = <<<EOF
                 1
             </span>
         </p>
-        <button id="toggleTerm" class="button">Toggle Term/Definition</button>
+        <button id="toggleTerm" class="button">Toggle</button>
+        <p class='help'>Toggle between Term and Definition</p>
     </div>
 EOF;
 echo $status_bar;
@@ -127,7 +136,7 @@ echo $app_container;
 
 // HTML Footers
 $footer = <<<EOF
-  <script type='text/javascript' src='script.js'></script>
+  <script type='text/javascript' src='script.1.js'></script>
   </body>
   </html>
 EOF;
