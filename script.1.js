@@ -135,28 +135,75 @@ function toggleTerms()
 {
     console.log('toggleTerms() reached');
     // Get all flip cards
-    var cards = document.getElementsByClassName('flip-card');
+    var cards = document.getElementsByClassName('card-container');
     
     for (i = 0; i < cards.length; i++)
     {
         if(!toggled)
         {
-            // Store Text Values
-            var frontText = cards[i]
+            // Flip front to back
+            // Hide the front
+            cards[i]
                 .getElementsByClassName('card-front')[0]
-                .classList.add('hidden')
+                .classList.add('hidden');
+            // Show the hint box
+            cards[i]
+                .getElementsByClassName('card-front')[0]
+                .getElementsByClassName('hint-box')[0]
+                .classList.remove('hidden');
+            // Make the front the back
+            cards[i]
+                .getElementsByClassName('card-front')[0]
+                .classList.replace('card-front', 'card-back');
             
-            var backText = cards[i]
+            // Flip back to front
+            // Show the "back"
+            cards[i]
+                .getElementsByClassName('card-back')[1]
+                .classList.remove('hidden');
+            // Hide the term box
+            cards[i]
+                .getElementsByClassName('card-back')[1]
+                .getElementsByClassName('term-box')[0]
+                .classList.add('hidden');
+            // Make the back the front
+            cards[i]
+                .getElementsByClassName('card-back')[1]
+                .classList.replace('card-back','card-front');
+        }
+        else
+        {
+            // Flip back to front
+            // Show the "back"
+            cards[i]
                 .getElementsByClassName('card-back')[0]
-                .classList[0].remove('hidden');
-
-            // Assign Text Values
-            cards[i].getElementsByClassName('flip-card-front')[0]
-                .getElementsByClassName('card-text')[0].innerHTML = backText;
-            cards[i].getElementsByClassName('flip-card-back')[0]
-                .getElementsByClassName('card-text')[0].innerHTML = frontText;
+                .classList.remove('hidden');
+            // Hide the hint box
+            cards[i]
+                .getElementsByClassName('card-back')[0]
+                .getElementsByClassName('hint-box')[0]
+                .classList.add('hidden');
+            // Make the back the front
+            cards[i]
+                .getElementsByClassName('card-back')[0]
+                .classList.replace('card-back','card-front');
+            
+            // Flip front to back
+            // Hide the front
+            cards[i]
+                .getElementsByClassName('card-front')[1]
+                .classList.add('hidden');
+            // Show the term box
+            cards[i]
+                .getElementsByClassName('card-front')[1]
+                .getElementsByClassName('term-box')[0]
+                .classList.remove('hidden');
+            // Make the front the back
+            cards[i]
+                .getElementsByClassName('card-front')[1]
+                .classList.replace('card-front', 'card-back');
         }
     }
-
+    // Flip toggle
     toggled = !toggled;
 } 

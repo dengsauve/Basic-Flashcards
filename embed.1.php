@@ -99,12 +99,12 @@ if($result->num_rows > 0)
 
 // Next/Previous Button Bar
 echo "
-</div><!-- end app-body -->
-<br/>
 <div class='bar'>
     <button class='button previous-button' id='previous'>Previous</button>
     <button class='button next-button' id='next'>Next</button>
-</div>";
+</div>
+</div><!-- end app-body -->
+";
 
 // Status Bar
 $status_bar = <<<EOF
@@ -122,7 +122,7 @@ $status_bar = <<<EOF
                 1
             </span>
         </p>
-        <button id="toggleTerm" class="button">Toggle</button>
+        <button id="toggleTerm" class="button toggle-button">Toggle</button>
         <p class='help'>Toggle between Term and Definition</p>
     </div>
 EOF;
