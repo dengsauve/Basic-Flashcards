@@ -126,8 +126,8 @@ function changeCard(incrementor)
 // Logic to update the progress bar
 function updateProgressBar()
 {
-    var width = (index + 1) / (numberOfCards + 1) * 100;
-    progressBar.style.width = width + '%';
+    progressBar.setAttribute('value', index);
+    progressBar.setAttribute('max', numberOfCards);
 }
 
 // Logic to toggle the flashcard terms/definitions

@@ -109,9 +109,7 @@ echo "
 // Status Bar
 $status_bar = <<<EOF
     <div class='status-bar'>
-        <div class="w3-light-grey">
-            <div id="progress-bar" class="w3-green"></div>
-        </div>
+        <progress value="1" max="1" id="progress-bar"></progress>
         <p>
             Progress: 
             <span id='position'>
