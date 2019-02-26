@@ -67,50 +67,24 @@ function changeCard(incrementor)
     // check if flipped
     if (flipped && incrementor == 1) // Move on to the next card
     {
-        // Moving on to the next card, which is unflipped
-        flipped = false;
-        // Show the front
-        cards[index].getElementsByClassName('card-front')[0].classList.remove('hidden');
-        // Hide the back
-        cards[index].getElementsByClassName('card-back')[0].classList.add('hidden');
-        // Hide current
-        cards[index].classList.add('hidden');
-        // Get next/previous index
-        index += incrementor;
-        // Update position in sidebar
-        position.innerHTML = index + 1;
-        // Show next/previous
-        cards[index].classList.remove('hidden');
-        // Update Progress Bar
-        updateProgressBar();
+        // Flip the card to front
+        flipCardFront(cards);
+
+        // Move to the next card
+        moveCard(cards, incrementor);
     }
     else if(flipped && incrementor == -1) // Unflip the card
     {
-        // Moving on to the next card, which is unflipped
-        flipped = false;
-        // Show the front
-        cards[index].getElementsByClassName('card-front')[0].classList.remove('hidden');
-        // Hide the back
-        cards[index].getElementsByClassName('card-back')[0].classList.add('hidden');
+        // Flip the card to front
+        flipCardFront(cards);
     }
-    else if(!flipped && incrementor == -1) // Move to the previos card
+    else if(!flipped && incrementor == -1) // Move to the previous card
     {
-        // Move to the previous card, which is unflipped
-        flipped = false;
-        // Show the front
-        cards[index].getElementsByClassName('card-front')[0].classList.remove('hidden');
-        // Hide the back
-        cards[index].getElementsByClassName('card-back')[0].classList.add('hidden');
-        // Hide current
-        cards[index].classList.add('hidden');
-        // Get next/previous index
-        index += incrementor;
-        // Update position in sidebar
-        position.innerHTML = index + 1;
-        // Show next/previous
-        cards[index].classList.remove('hidden');
-        // Update Progress Bar
-        updateProgressBar();
+        // Flip the card to front
+        flipCardFront(cards);
+
+        // Move to the next card
+        moveCard(cards, incrementor);
     }
     else // !flipped && incrementor == 1 // Show the flip side 
     {
@@ -120,7 +94,36 @@ function changeCard(incrementor)
         cards[index].getElementsByClassName('card-front')[0].classList.add('hidden');
         // Show the back
         cards[index].getElementsByClassName('card-back')[0].classList.remove('hidden');
+        // Toggle dark mode
+        cards[index].classList.add('dark');
     }
+}
+
+// Flip the card to the front
+function flipCardFront(cards)
+{
+    // Moving on to the next card, which is unflipped
+    flipped = false;
+    // Show the front
+    cards[index].getElementsByClassName('card-front')[0].classList.remove('hidden');
+    // Hide the back
+    cards[index].getElementsByClassName('card-back')[0].classList.add('hidden');
+    // Remove Dark mode
+    cards[index].classList.remove('dark');
+}
+
+function moveCard(cards, incrementor)
+{
+    // Hide current
+    cards[index].classList.add('hidden');
+    // Get next/previous index
+    index += incrementor;
+    // Update position in sidebar
+    position.innerHTML = index + 1;
+    // Show next/previous
+    cards[index].classList.remove('hidden');
+    // Update Progress Bar
+    updateProgressBar();
 }
 
 // Logic to update the progress bar

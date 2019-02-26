@@ -103,32 +103,36 @@ echo "
     <button class='button previous-button' id='previous'>Previous</button>
     <button class='button next-button' id='next'>Next</button>
 </div>
-</div><!-- end app-body -->
 ";
 
 // Status Bar
 $status_bar = <<<EOF
     <div class='status-bar'>
-        <progress value="1" max="1" id="progress-bar"></progress>
-        <p>
-            Progress: 
-            <span id='position'>
-                1
-            </span>
-            /
-            <span id='total'>
-                1
-            </span>
-        </p>
-        <button id="toggleTerm" class="button toggle-button">Toggle</button>
-        <p class='help'>Toggle between Term and Definition</p>
+        <div class='progress-group'>
+            <progress value="1" max="1" id="progress-bar"></progress>
+            <p>
+                Progress: 
+                <span id='position'>
+                    1
+                </span>
+                /
+                <span id='total'>
+                    1
+                </span>
+            </p>
+        </div>
+        <div class='toggle-group'>
+            <button id="toggleTerm" class="button toggle-button">Toggle</button>
+            <p class='help'>Toggle between Term and Definition</p>
+        </div>
     </div>
 EOF;
 echo $status_bar;
 
 // Application Container Close
 $app_container = <<<EOF
-    </div>
+        </div><!-- end app-body -->
+    </div><!-- end app-container -->
 EOF;
 echo $app_container;
 
