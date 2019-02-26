@@ -80,6 +80,7 @@ p.definition{
     color: white;
     background-color: #019dd3;
     border-radius: 10px;
+    border: none;
 }
 
 .button:focus{

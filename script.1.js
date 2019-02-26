@@ -1,8 +1,18 @@
-// Starting at the beginning of the card list
+/**
+ * Flashcard Tool
+ * 
+ * Version: Concept-1
+ * 
+ * Scripts to control the basic functions of the flashcard tool. 
+ */
+
+// index tracks what term/definition card the user is viewing.
 var index = 0;
 
-// Initial Card will not be flipped, or toggled
+// flipped tracks whether a card is flipped or not.
 var flipped = false;
+
+// toggled tracks whether the term or definition appears first.
 var toggled = false;
 
 // Get number of cards
@@ -58,7 +68,16 @@ function checkKey(e)
     }
 }
 
-// Logic for switching cards
+/**
+ * function changeCard
+ * @param {int} incrementor
+ * 
+ * changeCard takes an incrementor (either a +1 or -1) and determines,
+ * based on whether or not the card is flipped and the incrementor value,
+ * whether to flip the card, go back a card, or proceed to the next card.
+ * 
+ * return nothing 
+ */
 function changeCard(incrementor)
 {
     // Get all flip cards
@@ -69,7 +88,6 @@ function changeCard(incrementor)
     {
         // Flip the card to front
         flipCardFront(cards);
-
         // Move to the next card
         moveCard(cards, incrementor);
     }
@@ -82,7 +100,6 @@ function changeCard(incrementor)
     {
         // Flip the card to front
         flipCardFront(cards);
-
         // Move to the next card
         moveCard(cards, incrementor);
     }
@@ -99,7 +116,15 @@ function changeCard(incrementor)
     }
 }
 
-// Flip the card to the front
+/**
+ * function flipCardFront()
+ * @param {array} cards
+ * 
+ * flipCardFront performs styling functions on the current card to
+ * bring it back to the "unflipped" view.
+ * 
+ * return nothing
+ */
 function flipCardFront(cards)
 {
     // Moving on to the next card, which is unflipped
@@ -112,6 +137,19 @@ function flipCardFront(cards)
     cards[index].classList.remove('dark');
 }
 
+
+/**
+ * function moveCards()
+ * @param {array} cards 
+ * @param {int} incrementor 
+ * 
+ * moveCard hides the current card, chooses the next card in the array of cards,
+ * and removes the hidden class, revealing the front of the next card. 
+ * 
+ * The progress bar is then updated with the current index position.
+ * 
+ * return nothing
+ */
 function moveCard(cards, incrementor)
 {
     // Hide current
@@ -133,7 +171,19 @@ function updateProgressBar()
     progressBar.setAttribute('max', numberOfCards);
 }
 
-// Logic to toggle the flashcard terms/definitions
+/**
+ * function toggleTerms()
+ * 
+ * toggleTerms goes through every 'card-container' div in the dom,
+ * and switches the classes card-front, card-back around.
+ * 
+ * This changes the study mode, either by:
+ * - answering the definition when prompted by the term
+ * - answering the term when prompted by the definition
+ * 
+ * params - none
+ * return - none
+ */
 function toggleTerms()
 {
     console.log('toggleTerms() reached');
