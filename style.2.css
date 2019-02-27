@@ -117,11 +117,16 @@ p.help{
 }
 
 .progress-group{
+    margin-top: 250px;
+    margin-left: 375px;
+}
 
+.progress-group p{
+    margin-top: 4px;
 }
 
 .toggle-group{
-    margin-top: 50px;
+    margin-top: -200px;
 }
 
 .toggle-group p{
