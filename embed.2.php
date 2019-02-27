@@ -48,7 +48,7 @@ $header = <<<EOF
   <head>
     <meta charset='UTF-8'>
     <title>title</title>
-    <link rel='stylesheet' href='style.1.css' />
+    <link rel='stylesheet' href='style.2.css' />
   </head>
   <body>
 EOF;
@@ -138,7 +138,7 @@ echo $app_container;
 
 // HTML Footers
 $footer = <<<EOF
-  <script type='text/javascript' src='script.1.js'></script>
+  <script type='text/javascript' src='script.2.js'></script>
   </body>
   </html>
 EOF;
