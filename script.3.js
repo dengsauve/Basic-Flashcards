@@ -111,8 +111,6 @@ function changeCard(incrementor)
         cards[index].getElementsByClassName('card-front')[0].classList.add('hidden');
         // Show the back
         cards[index].getElementsByClassName('card-back')[0].classList.remove('hidden');
-        // Toggle dark mode
-        cards[index].classList.add('dark');
     }
 }
 
@@ -133,8 +131,6 @@ function flipCardFront(cards)
     cards[index].getElementsByClassName('card-front')[0].classList.remove('hidden');
     // Hide the back
     cards[index].getElementsByClassName('card-back')[0].classList.add('hidden');
-    // Remove Dark mode
-    cards[index].classList.remove('dark');
 }
 
 
