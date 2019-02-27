@@ -124,15 +124,18 @@ $status_bar = <<<EOF
         </div>
         <div class='toggle-group'>
             <p class='help'>Toggle between Term and Definition</p>
-            <button id="toggleTerm" class="button toggle-button">Toggle</button>
-            <br/>
-            <p class='help'>Show Notes</p>
-            <button id="toggleTerm" class="button toggle-button">Toggle</button>
-            <br/>
             <label class="switch">
-                <input type="checkbox">
+                <input type="checkbox" id="toggleTerm">
                 <span class="slider round"></span>
             </label>
+            
+            <br/>
+            <p class='help'>Show Notes</p>
+            <label class="switch">
+                <input type="checkbox" id="toggleNotes">
+                <span class="slider round"></span>
+            </label>
+            <br/>
         </div>
     </div>
 EOF;
