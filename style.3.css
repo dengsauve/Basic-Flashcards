@@ -1,0 +1,162 @@
+/* Generic Stylings */
+
+body{
+    font-family: Helvetica, Arial, sans-serif;
+}
+
+/* App & Title Stylings */
+.app-container{
+    max-width: 750px;
+}
+
+.title-bar{
+    width: 100%;
+    background-color: rgb(75, 75, 75);
+    color: whitesmoke;
+}
+
+.title-bar h2{
+    font-weight: lighter;
+    padding: 15px 20px;
+    margin: 0;
+}
+
+.app-body{
+    background-color: lightgray;
+    width: 100%;
+    height: 285px;
+    padding-top: 20px;
+}
+
+/* Flashcard Styling */
+
+.card-container{
+    width: 500px;
+    background-color: white;
+    height: 225px;
+    margin-left: 225px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.term-box, .hint-box{         
+    position: absolute;
+    top: 100px;
+    left: 250px;
+    color: darkgray;
+}
+
+.term, .term-box, .hint-box{
+    font-size: 150%;
+    font-weight: bold;
+}
+
+p.definition{
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.card-container p{
+    margin: 0;
+}
+
+.dark{
+    background-color: rgb(55,55,55);
+    color: whitesmoke;
+}
+
+/* Action Buttons Styling */
+
+.bar{
+    width: 500px;
+    margin-left: 250px;
+    margin-top: 10px;
+}
+
+.button{
+    height: 35px;
+    width: 75px;
+    color: white;
+    background-color: #019dd3;
+    border-radius: 10px;
+    border: none;
+}
+
+.button:focus{
+    outline: none;
+}
+
+.button:hover{
+    cursor: pointer;
+}
+
+.previous-button{
+    float: left;
+    margin-left: -25px;
+}
+
+.next-button{
+    float: right;
+    margin-right: 25px;
+}
+
+.toggle-button{
+    background-color: gray;
+}
+
+p.help{
+    font-size: 12px;
+}
+
+/* Status Bar */
+.status-bar{
+    width: 100%;
+    margin-top: -240px;
+    margin-left: 25px;
+}
+
+.progress-group{
+    margin-top: 250px;
+    margin-left: 375px;
+}
+
+.progress-group p{
+    margin-top: 4px;
+}
+
+.toggle-group{
+    margin-top: -200px;
+}
+
+.toggle-group p{
+    max-width: 75px;
+    font-size: 8px;
+    text-align: left;
+}
+
+progress{
+    /* Reset the default appearance */
+    -webkit-appearance: none;
+    appearance: none;
+
+    width: 150px;
+    height: 15px;
+}
+
+progress[value]::-webkit-progress-bar {
+    background-color: #eee;
+    border-radius: 5px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25) inset;
+}
+
+progress[value]::-webkit-progress-value {
+    background-color: #4eadce;
+    border-radius: 5px; 
+}
+
+
+/* More Generic */
+.hidden {
+    display:none;
+}
