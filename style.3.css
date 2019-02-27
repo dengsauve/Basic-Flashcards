@@ -4,6 +4,8 @@ body{
     font-family: Helvetica, Arial, sans-serif;
 }
 
+
+
 /* App & Title Stylings */
 .app-container{
     max-width: 750px;
@@ -28,13 +30,14 @@ body{
     padding-top: 20px;
 }
 
-/* Flashcard Styling */
 
+
+/* Flashcard Styling */
 .card-container{
     width: 500px;
     background-color: white;
     height: 225px;
-    margin-left: 225px;
+    margin-left: 25px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -66,11 +69,12 @@ p.definition{
     color: whitesmoke;
 }
 
-/* Action Buttons Styling */
 
+
+/* Action Buttons Styling */
 .bar{
     width: 500px;
-    margin-left: 250px;
+    margin-left: 50px;
     margin-top: 10px;
 }
 
@@ -107,7 +111,10 @@ p.definition{
 
 p.help{
     font-size: 12px;
+    display: inline;
 }
+
+
 
 /* Status Bar */
 .status-bar{
@@ -118,7 +125,7 @@ p.help{
 
 .progress-group{
     margin-top: 250px;
-    margin-left: 375px;
+    margin-left: 175px;
 }
 
 .progress-group p{
@@ -126,7 +133,8 @@ p.help{
 }
 
 .toggle-group{
-    margin-top: -200px;
+    margin-top: -275px;
+    margin-left: 500px;
 }
 
 .toggle-group p{
@@ -135,6 +143,9 @@ p.help{
     text-align: left;
 }
 
+
+
+/* Progress Bar Styling */
 progress{
     /* Reset the default appearance */
     -webkit-appearance: none;
@@ -154,6 +165,7 @@ progress[value]::-webkit-progress-value {
     background-color: #4eadce;
     border-radius: 5px; 
 }
+
 
 
 /* More Generic */

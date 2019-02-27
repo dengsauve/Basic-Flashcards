@@ -49,6 +49,7 @@ $header = <<<EOF
     <meta charset='UTF-8'>
     <title>title</title>
     <link rel='stylesheet' href='style.3.css' />
+    <link rel='stylesheet' href='toggle.css' />
   </head>
   <body>
 EOF;
@@ -122,8 +123,16 @@ $status_bar = <<<EOF
             </p>
         </div>
         <div class='toggle-group'>
-            <button id="toggleTerm" class="button toggle-button">Toggle</button>
             <p class='help'>Toggle between Term and Definition</p>
+            <button id="toggleTerm" class="button toggle-button">Toggle</button>
+            <br/>
+            <p class='help'>Show Notes</p>
+            <button id="toggleTerm" class="button toggle-button">Toggle</button>
+            <br/>
+            <label class="switch">
+                <input type="checkbox">
+                <span class="slider round"></span>
+            </label>
         </div>
     </div>
 EOF;
