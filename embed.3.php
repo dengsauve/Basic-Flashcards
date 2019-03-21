@@ -129,6 +129,7 @@ $status_bar = <<<EOF
                 <span class="slider round"></span>
             </label>
             
+            <!-- Show notes feature to come later
             <br/>
             <p class='help'>Show Notes</p>
             <label class="switch">
@@ -136,6 +137,7 @@ $status_bar = <<<EOF
                 <span class="slider round"></span>
             </label>
             <br/>
+            -->
         </div>
     </div>
 EOF;
