@@ -2,6 +2,9 @@
 
 require 'include/env.php';
 
+////////////////////////////////
+// START OF FLASHCARD QUERIES //
+////////////////////////////////
 // query for all flashcards
 $sql = 'select flashcards.*
 from flashcard_groups
@@ -34,6 +37,10 @@ if(!empty($group))
     }
 }
 
+//////////////////////////////
+// END OF FLASHCARD QUERIES //
+//////////////////////////////
+
 // HTML Page Header
 $header = <<<EOF
 <!DOCTYPE html>
@@ -42,6 +49,7 @@ $header = <<<EOF
     <meta charset='UTF-8'>
     <title>title</title>
     <link rel='stylesheet' href='style.css' />
+    <link rel='stylesheet' href='toggle.css' />
   </head>
   <body>
 EOF;
@@ -53,72 +61,92 @@ if($admin) include 'include/menu.php';
 // Application Container Open
 $app_container = <<<EOF
     <div class="app-container">
-        <h2>Study Group: $group_name</h2>
-        <div class="status-cards">
+        <div class="title-bar">
+            <h2>Study Group: $group_name</h2>
+        </div>
+        <div class="app-body">
 EOF;
 echo $app_container;
-
-// Status Bar
-$status_bar = <<<EOF
-    <div class='status-bar'>
-        <div class="w3-light-grey">
-            <div id="progress-bar" class="w3-green"></div>
-        </div>
-        <p>
-            Progress: 
-            <span id='position'>
-                1
-            </span>
-            /
-            <span id='total'>
-                1
-            </span>
-        </p>
-        <button id="toggleTerm" class="button">Toggle Term/Definition</button>
-    </div>
-EOF;
-echo $status_bar;
 
 // Flashcards
 if($result->num_rows > 0)
 {
     $notFirst = false;
     $hidden = '';
-  while($row = $result->fetch_assoc())
-  {
-    if($notFirst)
+    while($row = $result->fetch_assoc())
     {
-        $hidden = ' hidden';
-    }
-    $card = "
-            <div class='flip-card" . $hidden . "'>
-                <div class='flip-card-inner'>
-                    <div class='flip-card-front'>
-                        <p class='card-text'>" . $row['term'] . "</p>
+        // Hide the following cards that are generated (only showing the first)
+        if($notFirst)
+        {
+            $hidden = ' hidden';
+        }
+        
+        $card = "
+                <div class='card-container $hidden'>
+                    <div class='card-front'>
+                        <p class='hint-box hidden'>" . substr($row['definition'], 0, 20) . "...</p>
+                        <p class='term'>" . $row['term'] . "</p>
                     </div>
-                    <div class='flip-card-back'>
-                        <p class='card-text'>" . $row['definition'] . "</p>
+                    <div class='card-back hidden'>
+                        <p class='term-box'>" . $row['term'] . "</p>
+                        <p class='definition'>" . $row['definition'] . "</p>
                     </div>
                 </div>
-            </div>
-            ";
-    echo $card;
-    $notFirst = true;
-  }
+        ";
+        echo $card;
+        $notFirst = true;
+    }
 }
 
 // Next/Previous Button Bar
 echo "
-</div>
-<br/>
 <div class='bar'>
     <button class='button previous-button' id='previous'>Previous</button>
     <button class='button next-button' id='next'>Next</button>
-</div>";
+</div>
+";
+
+// Status Bar
+$status_bar = <<<EOF
+    <div class='status-bar'>
+        <div class='progress-group'>
+            <progress value="1" max="1" id="progress-bar"></progress>
+            <p>
+                Progress: 
+                <span id='position'>
+                    1
+                </span>
+                /
+                <span id='total'>
+                    1
+                </span>
+            </p>
+        </div>
+        <div class='toggle-group'>
+            <p class='help'>Toggle between Term and Definition</p>
+            <label class="switch">
+                <input type="checkbox" id="toggleTerm">
+                <span class="slider round"></span>
+            </label>
+            
+            <!-- Show notes feature to come later
+            <br/>
+            <p class='help'>Show Notes</p>
+            <label class="switch">
+                <input type="checkbox" id="toggleNotes">
+                <span class="slider round"></span>
+            </label>
+            <br/>
+            -->
+        </div>
+    </div>
+EOF;
+echo $status_bar;
 
 // Application Container Close
 $app_container = <<<EOF
-    </div>
+        </div><!-- end app-body -->
+    </div><!-- end app-container -->
 EOF;
 echo $app_container;
 

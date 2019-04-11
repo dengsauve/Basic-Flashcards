@@ -1,171 +1,181 @@
-/* Homepage Styles */
-h1, h2, h3, h4, h5, h6, p, form {
-    font-family: Arial, Helvetica, sans-serif;
+/* Generic Stylings */
+
+body{
+    font-family: Helvetica, Arial, sans-serif;
 }
 
-table {
-    font-family: Arial, Helvetica, sans-serif;
-    text-align: left;
+
+
+/* App & Title Stylings */
+.app-container{
+    max-width: 750px;
 }
 
-td {
+.title-bar{
+    width: 100%;
+    background-color: #6f6f6f;
+    color: #fff;
+}
+
+.title-bar h2{
+    font-weight: lighter;
+    padding: 15px 20px;
+    margin: 0;
+}
+
+.app-body{
+    background-color: #f9f9f9;
+    width: 100%;
+    height: 285px;
     padding-top: 20px;
 }
 
-/* Flashcard Container Styling */
-div.app-container{
-    max-width: 1100px;
-    padding: 20px;
-    border: 2px solid darkgrey;
-    background-color: lightgrey;
-    overflow: hidden;
-}
 
-div.status-cards{
-    overflow: hidden;
-}
-
-/* Status Bar Styling */
-div.status-bar{
-    float: left;
-    width: 20%;
-    height: 100%;
-}
-
-.w3-green,.w3-hover-green:hover{
-    color:#fff!important;
-    background-color:#4CAF50!important;
-    height:14px;
-    width:20%;
-    border-radius: 5px;
-}
-
-.w3-light-grey,
-.w3-hover-light-grey:hover,
-.w3-light-gray,
-.w3-hover-light-gray:hover{
-    color:#000!important;
-    background-color:#f1f1f1!important;
-    width: 100%;
-    border-radius: 5px;
-}
 
 /* Flashcard Styling */
-
-/* The flip card container - set the width and height to whatever you want. We have added the border property to demonstrate that the flip itself goes out of the box on hover (remove perspective if you don't want the 3D effect */
-.flip-card {
-background-color: transparent;
-width: 70%;
-min-width: 400px;
-height: 300px;
-border: 1px solid #f1f1f1;
-perspective: 1000px; /* Remove this if you don't want the 3D effect */
--webkit-perspective: 1000px;
-float: right;
+.card-container{
+    width: 494px;
+    height: 225px;
+    margin-left: 25px;
+    border: 3px solid #e9e9e9;
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-/* This container is needed to position the front and back side */
-.flip-card-inner {
-position: relative;
-width: 100%;
-height: 100%;
-text-align: center;
-transition: transform 0.8s;
--webkit-transition: transform 0.8s;
-transform-style: preserve-3d;
--webkit-transform-style: preserve-3d;
+.term-box, .hint-box{         
+    position: absolute;
+    top: 100px;
+    left: 50px;
+    color: darkgray;
 }
 
-/* Do an horizontal flip when you move the mouse over the flip box container */
-.flip-card:hover .flip-card-inner, 
-.flip-card:focus .flip-card-inner {
-transform: rotateX(180deg);
--webkit-transform: rotateX(180deg);
-}
-
-/* Position the front and back side */
-.flip-card-front, .flip-card-back {
-position: absolute;
-width: 100%;
-height: 100%;
-backface-visibility: hidden;
--webkit-backface-visibility: hidden;
-}
-
-/* Style the front side (fallback if image is missing) */
-.flip-card-front {
-background-color: rgb(255, 255, 255);
-color: black;
-}
-
-/* Style the back side */
-.flip-card-back {
-background-color: dodgerblue;
-color: white;
-transform: rotateX(180deg);
--webkit-transform: rotateX(180deg);
-}
-
-p.card-text{
-    padding-top: 100px;
+.term, .term-box, .hint-box{
+    color: #535353;
     font-size: 24px;
-    font-family: Arial, Helvetica, sans-serif;
 }
 
-.hidden{
-    display: none;
+.term-box, .hint-box{
+    font-size: 14px;
+    font-weight: bold;
 }
 
+p.definition{
+    font-size: 14px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.card-container p{
+    margin: 0;
+}
+
+
+
+/* Action Buttons Styling */
 .bar{
-    display: block;
-    overflow: hidden;
+    width: 500px;
+    margin-left: 50px;
+    margin-top: 10px;
 }
 
-/* Button Styling */
-.next-button{
-    float: right;
+.button{
+    height: 35px;
+    width: 75px;
+    color: white;
+    background-color: #019dd3;
+    border-radius: 5px;
+    border: none;
+}
+
+.button:focus{
+    outline: none;
+}
+
+.button:hover{
+    cursor: pointer;
 }
 
 .previous-button{
     float: left;
+    margin-left: -25px;
 }
 
-.button{
-    min-width: 100px;
-    color: white;
-    background-color: lightskyblue;
-    border: none;
-    text-decoration: none;
+.next-button{
+    float: right;
+    margin-right: 25px;
 }
 
-a.button{
-    padding: 10px;
+.toggle-button{
+    background-color: gray;
 }
 
-button.button{
-    height: 50px;
+p.help{
+    height: 14px;
+    font-size: 9px;
+    display: inline-block;
+    vertical-align: middle;
 }
 
-/* Form Styling */
-form {
-    margin-top: 20px;
-}
-form label, form input {
-    display: block;
+
+
+/* Status Bar */
+.status-bar{
+    width: 100%;
+    margin-top: -240px;
+    margin-left: 25px;
 }
 
-form label {
-    margin-bottom: 5px;
-    font-weight: bold;
+.progress-group{
+    margin-top: 250px;
+    margin-left: 175px;
 }
 
-form input {
-    margin-bottom: 15px;
-    padding: 5px;
+.progress-group p{
+    margin-top: 4px;
+    width: 150px;
+    text-align: center;
+    font-size: 14px;
+}
+
+.toggle-group{
+    margin-top: -295px;
+    margin-left: 520px;
+}
+
+.toggle-group p{
+    max-width: 150px;
+    font-size: 9px;
+    text-align: left;
+}
+
+
+
+/* Progress Bar Styling */
+progress{
+    /* Reset the default appearance */
+    -webkit-appearance: none;
+    appearance: none;
+
+    width: 150px;
+    height: 15px;
+}
+
+progress[value]::-webkit-progress-bar {
+    background-color: #d3eee7;
     border-radius: 5px;
-    /* Override Defaults */
-    border-width: 1px;
-    border-style: solid;
-    border-color: grey;
-    border-image: initial;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25) inset;
+}
+
+progress[value]::-webkit-progress-value {
+    background-color: #b2cfd5;
+    border-radius: 5px; 
+}
+
+
+
+/* More Generic */
+.hidden {
+    display:none;
 }
