@@ -215,6 +215,14 @@ function toggleTerms()
                 .getElementsByClassName('card-back')[1]
                 .getElementsByClassName('term-box')[0]
                 .classList.add('hidden');
+            // Hide the definition box
+            cards[i]
+                .getElementsByClassName('definition')[0]
+                .classList.add('hidden');
+            // Show the question box
+            cards[i]
+                .getElementsByClassName('question')[0]
+                .classList.remove('hidden');
             // Make the back the front
             cards[i]
                 .getElementsByClassName('card-back')[1]
@@ -247,6 +255,14 @@ function toggleTerms()
                 .getElementsByClassName('card-front')[1]
                 .getElementsByClassName('term-box')[0]
                 .classList.remove('hidden');
+            // Show the definition box
+            cards[i]
+                .getElementsByClassName('definition')[0]
+                .classList.remove('hidden');
+            // Hide the question box
+            cards[i]
+                .getElementsByClassName('question')[0]
+                .classList.add('hidden');
             // Make the front the back
             cards[i]
                 .getElementsByClassName('card-front')[1]

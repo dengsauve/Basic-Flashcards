@@ -90,6 +90,7 @@ if($result->num_rows > 0)
                     <div class='card-back hidden'>
                         <p class='term-box'>" . $row['term'] . "</p>
                         <p class='definition'>" . $row['definition'] . "</p>
+                        <p class='question hidden'>" . $row['question'] . "</p>
                     </div>
                 </div>
         ";
