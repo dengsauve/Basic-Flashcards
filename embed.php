@@ -47,7 +47,8 @@ $header = <<<EOF
 <html>
   <head>
     <meta charset='UTF-8'>
-    <title>title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flashcards</title>
     <link rel='stylesheet' href='style.css' />
     <link rel='stylesheet' href='toggle.css' />
   </head>
