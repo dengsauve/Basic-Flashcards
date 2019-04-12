@@ -63,7 +63,7 @@ if($admin) include 'include/menu.php';
 $app_container = <<<EOF
     <div class="app-container">
         <div class="title-bar">
-            <h2>Study Group: $group_name</h2>
+            <h2>$group_name</h2>
         </div>
         <div class="app-body">
 EOF;
